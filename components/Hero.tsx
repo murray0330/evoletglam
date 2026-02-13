@@ -34,21 +34,20 @@ export const Hero: React.FC<HeroProps> = ({ onStart }) => {
 
       {/* Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-        <h1 className="font-serif text-5xl md:text-8xl text-white mb-6 leading-tight animate-slide-up tracking-tight">
+        <h1 className="font-serif text-4xl sm:text-5xl md:text-8xl text-white mb-4 sm:mb-6 leading-tight animate-slide-up tracking-tight">
           Design your <br/> <span className="italic font-light text-white/95">perfect moment</span>
         </h1>
-        <h2 className="text-lg md:text-xl text-white/90 mb-10 max-w-4xl font-light animate-slide-up tracking-wide" style={{ animationDelay: '0.2s' }}>
-          CUSTOMIZE YOUR SCENE STEP BY STEP AND LET US BRING IT TO LIFE.
+        <h2 className="text-sm sm:text-lg md:text-xl text-white/90 mb-8 sm:mb-10 max-w-4xl font-light animate-slide-up tracking-wide uppercase" style={{ animationDelay: '0.2s' }}>
+          CUSTOMIZE YOUR MOMENT STEP BY STEP.
         </h2>
         
-        <div className="flex flex-col sm:flex-row gap-4 animate-slide-up" style={{ animationDelay: '0.4s' }}>
-          {/* Primary Button: #e3d5ca background, dark text */}
-          <Button onClick={handleStart} size="lg" className="bg-primary text-neutralDark hover:bg-[#d6c5b8] shadow-xl border border-transparent">
+        <div className="flex flex-row gap-3 sm:gap-4 animate-slide-up" style={{ animationDelay: '0.4s' }}>
+          {/* Hero Buttons: Row-aligned on mobile with smaller padding for fit */}
+          <Button onClick={handleStart} className="bg-primary text-neutralDark hover:bg-[#d6c5b8] shadow-xl border border-transparent text-xs sm:text-base px-4 sm:px-8">
             Start Designing
           </Button>
           
-          {/* Secondary Button: White background, Dark Text for ADA Compliance */}
-          <Button onClick={scrollToServices} size="lg" className="bg-white text-neutralDark border-2 border-white hover:bg-gray-100 hover:border-gray-100">
+          <Button onClick={scrollToServices} className="bg-white text-neutralDark border-2 border-white hover:bg-gray-100 hover:border-gray-100 text-xs sm:text-base px-4 sm:px-8">
             Our Services
           </Button>
         </div>

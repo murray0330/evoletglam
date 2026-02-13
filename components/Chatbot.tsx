@@ -60,11 +60,9 @@ export const Chatbot: React.FC = () => {
     setIsLoading(true);
 
     try {
-      // Initialize GoogleGenAI with the API key from process.env.API_KEY exclusively as per guidelines.
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       
       const response = await ai.models.generateContent({
-        // Use gemini-3-flash-preview for basic text tasks like this virtual concierge chatbot.
         model: 'gemini-3-flash-preview',
         contents: newMessages.map(m => ({
           role: m.role,
@@ -101,7 +99,6 @@ export const Chatbot: React.FC = () => {
         }
       });
 
-      // Extract generated text using the .text property from GenerateContentResponse.
       const modelText = response.text || "I apologize, the tide is coming in. How else can I help with your beach planning?";
       setMessages(prev => [...prev, { role: 'model', text: modelText }]);
     } catch (error) {
@@ -143,14 +140,17 @@ export const Chatbot: React.FC = () => {
 
   if (!isOpen) {
     return (
-      <button onClick={() => setIsOpen(true)} className="fixed bottom-6 right-6 w-16 h-16 bg-neutralDark text-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform z-[60] group border-4 border-white">
-        <MessageCircle size={28} />
+      <button 
+        onClick={() => setIsOpen(true)} 
+        className="fixed bottom-28 right-6 w-14 h-14 sm:w-16 sm:h-16 bg-neutralDark text-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform z-[60] group border-4 border-white"
+      >
+        <MessageCircle size={24} className="sm:size-[28px]" />
       </button>
     );
   }
 
   return (
-    <div className={`fixed bottom-6 right-6 w-[420px] max-w-[95vw] bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.3)] flex flex-col z-[60] overflow-hidden transition-all duration-300 border border-neutralLight ${isMinimized ? 'h-20' : 'h-[680px] max-h-[85vh]'}`}>
+    <div className={`fixed bottom-28 right-6 w-[420px] max-w-[90vw] bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.3)] flex flex-col z-[60] overflow-hidden transition-all duration-300 border border-neutralLight ${isMinimized ? 'h-20' : 'h-[600px] max-h-[75vh]'}`}>
       <div className="bg-neutralDark p-4 flex items-center justify-between text-white shrink-0">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
@@ -189,7 +189,7 @@ export const Chatbot: React.FC = () => {
               </div>
               <div className="flex flex-wrap gap-2.5">
                 {suggestions.options.map((option, i) => (
-                  <button key={i} onClick={() => { if (option === "Start Over") resetChat(); else handleSendMessage(option); }} className="flex items-center gap-2 px-4 py-2.5 bg-white border border-primary/50 text-neutralDark text-[11px] rounded-full hover:bg-primary/20 hover:border-primary transition-all shadow-sm font-semibold tracking-wide group">
+                  <button key={i} onClick={() => { if (option === "Start Over") resetChat(); else handleSendMessage(option); }} className="flex items-center gap-2 px-4 py-2 bg-white border border-primary/50 text-neutralDark text-[10px] sm:text-[11px] rounded-full hover:bg-primary/20 hover:border-primary transition-all shadow-sm font-semibold tracking-wide group">
                     {option}
                     <ChevronRight size={12} className="text-primary group-hover:translate-x-0.5 transition-transform" />
                   </button>
@@ -200,7 +200,7 @@ export const Chatbot: React.FC = () => {
 
           <div className="p-4 bg-white border-t border-neutralLight shrink-0">
             <div className="relative">
-              <input type="text" placeholder="Message coastal concierge..." value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()} className="w-full pl-5 pr-14 py-4 bg-neutralLight rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/50 text-neutralDark text-sm placeholder:text-gray-400" />
+              <input type="text" placeholder="Message concierge..." value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()} className="w-full pl-5 pr-14 py-4 bg-neutralLight rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/50 text-neutralDark text-sm placeholder:text-gray-400" />
               <button onClick={() => handleSendMessage()} disabled={!input.trim() || isLoading} className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-neutralDark text-white rounded-xl hover:bg-black transition-colors disabled:opacity-30">
                 <Send size={18} />
               </button>
