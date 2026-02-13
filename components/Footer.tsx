@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { Diamond, Instagram, Facebook, Mail } from 'lucide-react';
+import { Instagram, Facebook, Mail } from 'lucide-react';
 import { Page } from '../types';
 
 interface FooterProps {
@@ -14,8 +15,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           
           {/* Brand */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-               <Diamond className="text-neutralDark h-6 w-6" />
+            <div className="flex items-center space-x-4">
+               <img 
+                 src="https://drive.google.com/thumbnail?id=1u7VQG6fi-IcUqQ81Nat-byd4S1NzFZqa&sz=s800" 
+                 alt="Evolet Glam" 
+                 className="h-14 w-auto object-contain"
+               />
                <span className="font-serif text-2xl font-semibold">Evolet Glam</span>
             </div>
             <p className="text-neutralDark/80 text-sm leading-relaxed max-w-xs font-medium">
@@ -34,6 +39,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <h3 className="font-serif text-lg mb-6 font-medium">Quick Links</h3>
             <ul className="space-y-3 text-neutralDark/80 text-sm font-medium">
               <li><button onClick={() => onNavigate('home')} className="hover:text-neutralDark">Home</button></li>
+              <li><button onClick={() => onNavigate('about')} className="hover:text-neutralDark">About</button></li>
               <li><button onClick={() => onNavigate('gallery')} className="hover:text-neutralDark">Gallery</button></li>
               <li><button onClick={() => onNavigate('faq')} className="hover:text-neutralDark">FAQ</button></li>
               <li><button onClick={() => onNavigate('terms')} className="hover:text-neutralDark">Terms of Service</button></li>

@@ -32,7 +32,7 @@ export const Chatbot: React.FC<ChatbotProps> = ({ isOpen, onClose, onOpen }) => 
   const [selectedOccasion, setSelectedOccasion] = useState<string | null>(null);
 
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'model', text: "Welcome to Evolet Glam.\n\nI am your private concierge. My goal is to ensure your coastal proposal is as effortless as the incoming tide.\n\nWhich occasion are we curating for today?" }
+    { role: 'model', text: "Welcome to Evolet Glam! ✨\n\nI am your private coastal concierge. My goal is to ensure your celebration is as effortless as the incoming tide. 🌊\n\nI'm so excited to help you plan! Which occasion are we curating for today? 🥂" }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -74,30 +74,32 @@ export const Chatbot: React.FC<ChatbotProps> = ({ isOpen, onClose, onOpen }) => 
           parts: [{ text: m.text }]
         })),
         config: {
-          systemInstruction: `You are Evolet Glam's Signature Concierge. You are sophisticated, worldly, and an expert in Coastal Virginia luxury.
+          systemInstruction: `You are Evolet Glam's Signature Concierge. 
           
-          Tone: Understated luxury, expert, and warm. 
-          Context: Specializing in Virginia Beach, Norfolk, and Hampton.
+          Tone: Sophisticated yet very friendly, warm, and welcoming. Think of a high-end luxury concierge who is also your biggest cheerleader.
+          
+          Context: We specialize in luxury beach proposals and events in Virginia Beach, Norfolk, and Hampton.
           
           Formatting Rules:
-          - No emojis. 
-          - Short, impactful sentences.
-          - Double line breaks between paragraphs.
-          - End with one clear, guiding question.
+          - USE EMOJIS! Use them to add warmth and a coastal feel (✨, 🌊, 🐚, 🥂, 💍).
+          - BREAK TEXT UP. Use short, punchy paragraphs. 
+          - Never have more than 2 sentences per paragraph.
+          - Use double line breaks between paragraphs for maximum readability.
+          - Always end with one clear, friendly question to help them through the design process.
           
           Strategy:
-          - Suggest "The Glow of First Landing" or "The Privacy of Sandbridge".
-          - Mention windproof decor for oceanfront events.
-          - Guide them through: Occasion -> Centerpiece -> Table -> Ambiance -> Add-ons.`,
-          temperature: 0.7,
+          - Be encouraging and helpful.
+          - If they choose an occasion, guide them through the next steps (Centerpiece -> Table Style -> Ambiance -> Add-ons).
+          - Mention specific vibes like "The Privacy of Sandbridge" or "The Energy of the Oceanfront".`,
+          temperature: 0.8,
         }
       });
 
-      const modelText = response.text || "Forgive me, the ocean breeze interrupted our connection. How shall we proceed?";
+      const modelText = response.text || "Oh no, a little sea spray must have gotten on the line! 🌊 Could you try saying that again? I'd love to keep planning with you!";
       setMessages(prev => [...prev, { role: 'model', text: modelText }]);
     } catch (error) {
       console.error("Chatbot Error:", error);
-      setMessages(prev => [...prev, { role: 'model', text: "I am currently attending to another guest. I will return shortly to assist with your shoreline design." }]);
+      setMessages(prev => [...prev, { role: 'model', text: "I'm currently assisting another guest with their coastal dream! 🐚 I'll be back in just a moment to help you create your perfect shoreline design. ✨" }]);
     } finally {
       setIsLoading(false);
     }
@@ -106,7 +108,7 @@ export const Chatbot: React.FC<ChatbotProps> = ({ isOpen, onClose, onOpen }) => 
   const resetChat = () => {
     setChatStep(0);
     setSelectedOccasion(null);
-    setMessages([{ role: 'model', text: "I am ready to begin your design journey once more. What coastal occasion shall we plan?" }]);
+    setMessages([{ role: 'model', text: "I'm so ready to dive back in! 🌊 Let's start your design journey again. \n\nWhat coastal occasion shall we plan today? 💍" }]);
   };
 
   const getContextualSuggestions = (): SuggestionSet | null => {
@@ -155,9 +157,16 @@ export const Chatbot: React.FC<ChatbotProps> = ({ isOpen, onClose, onOpen }) => 
             </div>
             
             <div className="relative z-10 flex justify-between items-start">
-              <div className="space-y-1">
-                <span className="text-[9px] uppercase tracking-[0.4em] text-primary font-bold">The Signature Experience</span>
-                <h3 className="font-serif text-3xl tracking-wide">Concierge Service</h3>
+              <div className="flex items-center gap-5">
+                <img 
+                  src="https://drive.google.com/thumbnail?id=1u7VQG6fi-IcUqQ81Nat-byd4S1NzFZqa&sz=s800" 
+                  alt="Evolet Glam" 
+                  className="h-16 w-auto object-contain brightness-0 invert"
+                />
+                <div className="space-y-1">
+                  <span className="text-[9px] uppercase tracking-[0.4em] text-primary font-bold">The Signature Experience</span>
+                  <h3 className="font-serif text-3xl tracking-wide">Concierge Service</h3>
+                </div>
               </div>
               <button 
                 onClick={onClose} 
@@ -175,7 +184,7 @@ export const Chatbot: React.FC<ChatbotProps> = ({ isOpen, onClose, onOpen }) => 
           >
             {messages.map((msg, idx) => (
               <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} animate-fade-in-up`}>
-                <div className={`max-w-[85%] px-7 py-5 rounded-2xl text-[13px] sm:text-sm leading-relaxed shadow-sm ${msg.role === 'user' ? 'bg-neutralDark text-white rounded-tr-none' : 'bg-white text-neutralDark border border-neutralDark/5 rounded-tl-none font-light italic'}`}>
+                <div className={`max-w-[85%] px-7 py-5 rounded-2xl text-[13px] sm:text-sm leading-relaxed shadow-sm ${msg.role === 'user' ? 'bg-neutralDark text-white rounded-tr-none font-medium' : 'bg-white text-neutralDark border border-neutralDark/5 rounded-tl-none font-light whitespace-pre-wrap'}`}>
                   {msg.text}
                 </div>
               </div>
@@ -217,7 +226,7 @@ export const Chatbot: React.FC<ChatbotProps> = ({ isOpen, onClose, onOpen }) => 
             <div className="relative">
               <input 
                 type="text" 
-                placeholder="What is your vision for the shore?" 
+                placeholder="Share your coastal vision..." 
                 value={input} 
                 onChange={(e) => setInput(e.target.value)} 
                 onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()} 

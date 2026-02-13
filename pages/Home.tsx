@@ -343,7 +343,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
         <section className="py-12 sm:py-24 bg-primary">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-16 items-center">
             <div className="relative h-[300px] sm:h-[600px] rounded-sm overflow-hidden shadow-2xl">
-               <img src="https://drive.google.com/thumbnail?id=1hLw1ouVo2PeHMC6kjh_HrK4NGSfnV8es&sz=s800" alt="Coastal Virginia Proposal" className="w-full h-full object-cover" />
+               <img src="https://drive.google.com/thumbnail?id=1sQt_YiOpSGcFedIfJrXFVByBiRQ-OW3M&sz=s800" alt="Coastal Virginia Proposal" className="w-full h-full object-cover" />
             </div>
             <div className="lg:pl-8 text-center lg:text-left">
               <span className="text-neutralDark/50 font-bold tracking-widest uppercase text-[9px] sm:text-xs mb-3 block">Atlantic Romance</span>
@@ -470,8 +470,8 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
           <BuilderLayout key={6} step={7} title="Finalize Your Vision" subtitle="Enter your details to receive a formal seaside quote.">
             <div className="max-w-3xl mx-auto bg-surface p-6 sm:p-12 rounded-2xl shadow-xl border border-white">
               <div className="mb-6 p-4 sm:p-6 bg-neutralLight/40 rounded-lg border border-neutralDark/5">
-                <h4 className="font-serif text-lg sm:text-xl mb-3 text-neutralDark">Design Summary</h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4 text-[11px] sm:text-sm">
+                <h4 className="font-serif text-lg sm:text-xl mb-3 text-neutralDark border-b border-neutralDark/10 pb-2">Design Summary</h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-[11px] sm:text-sm">
                    <div className="flex justify-between border-b border-gray-100 pb-1.5">
                      <span className="text-gray-500">Occasion</span>
                      <span className="font-medium text-neutralDark">{selections.occasion?.title}</span>
@@ -490,6 +490,26 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                      <span className="text-gray-500">Location</span>
                      <span className="font-medium text-neutralDark">{selections.location?.label}</span>
                    </div>
+                   
+                   {/* Ambiance Selection Summary */}
+                   {selections.customFeatures.length > 0 && (
+                     <div className="flex justify-between border-b border-gray-100 pb-1.5 col-span-1 sm:col-span-2">
+                       <span className="text-gray-500">Ambiance</span>
+                       <span className="font-medium text-neutralDark text-right">
+                         {selections.customFeatures.map(f => f.label).join(', ')}
+                       </span>
+                     </div>
+                   )}
+
+                   {/* Add-ons Selection Summary */}
+                   {selections.addOns.length > 0 && (
+                     <div className="flex justify-between border-b border-gray-100 pb-1.5 col-span-1 sm:col-span-2">
+                       <span className="text-gray-500">Add-ons</span>
+                       <span className="font-medium text-neutralDark text-right">
+                         {selections.addOns.map(a => a.label).join(', ')}
+                       </span>
+                     </div>
+                   )}
                 </div>
               </div>
 

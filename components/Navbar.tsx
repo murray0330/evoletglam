@@ -36,7 +36,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate }) => {
             <img 
               src="https://drive.google.com/thumbnail?id=1u7VQG6fi-IcUqQ81Nat-byd4S1NzFZqa&sz=s800" 
               alt="Evolet Glam" 
-              className="h-10 w-auto mr-3 object-contain"
+              className="h-14 w-auto mr-4 object-contain"
             />
             <div className="flex flex-col">
               <span className="font-serif text-xl sm:text-2xl font-semibold tracking-wide text-neutralDark leading-none">
