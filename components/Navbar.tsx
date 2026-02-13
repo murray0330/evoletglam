@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Page } from '../types';
@@ -35,13 +36,13 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate }) => {
             <img 
               src="https://drive.google.com/thumbnail?id=1u7VQG6fi-IcUqQ81Nat-byd4S1NzFZqa&sz=s800" 
               alt="Evolet Glam" 
-              className="h-12 w-auto mr-3 object-contain"
+              className="h-10 w-auto mr-3 object-contain"
             />
             <div className="flex flex-col">
-              <span className="font-serif text-2xl font-semibold tracking-wide text-neutralDark leading-none">
+              <span className="font-serif text-xl sm:text-2xl font-semibold tracking-wide text-neutralDark leading-none">
                 Evolet Glam
               </span>
-              <span className="text-xs tracking-widest uppercase text-neutralDark/75 mt-1 font-medium">
+              <span className="text-[8px] sm:text-[10px] tracking-widest uppercase text-neutralDark/70 mt-1 font-bold">
                 Perfect Moments
               </span>
             </div>
@@ -53,15 +54,16 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate }) => {
               <button
                 key={link.value}
                 onClick={() => handleNav(link.value)}
-                className={`text-sm uppercase tracking-wider transition-colors duration-200 ${
+                className={`text-[11px] uppercase tracking-widest transition-colors duration-200 ${
                   activePage === link.value 
                     ? 'text-neutralDark font-bold' 
-                    : 'text-neutralDark/80 hover:text-neutralDark font-medium'
+                    : 'text-neutralDark/60 hover:text-neutralDark font-semibold'
                 }`}
               >
                 {link.label}
               </button>
             ))}
+
             <button
                onClick={() => {
                  handleNav('home');
@@ -70,7 +72,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate }) => {
                     if(el) el.scrollIntoView({behavior: 'smooth'});
                  }, 100);
                }}
-               className="bg-white text-neutralDark px-6 py-2 rounded-full text-sm uppercase tracking-wide hover:bg-gray-50 transition-colors shadow-sm font-medium"
+               className="bg-neutralDark text-white px-6 py-2.5 rounded-full text-[10px] uppercase tracking-widest hover:bg-black transition-colors shadow-sm font-bold ml-4"
             >
               Inquire Now
             </button>
@@ -88,13 +90,13 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate }) => {
       {/* Mobile Menu Dropdown */}
       {isMenuOpen && (
         <div className="md:hidden bg-primary border-t border-neutralDark/10 absolute w-full shadow-lg">
-          <div className="px-4 pt-2 pb-6 space-y-2">
+          <div className="px-4 pt-2 pb-6 space-y-1">
             {navLinks.map((link) => (
               <button
                 key={link.value}
                 onClick={() => handleNav(link.value)}
-                className={`block w-full text-left px-3 py-4 text-base font-medium border-b border-neutralDark/10 ${
-                  activePage === link.value ? 'text-neutralDark font-bold' : 'text-neutralDark/80'
+                className={`block w-full text-left px-3 py-4 text-xs font-bold uppercase tracking-widest border-b border-neutralDark/5 ${
+                  activePage === link.value ? 'text-neutralDark' : 'text-neutralDark/60'
                 }`}
               >
                 {link.label}
@@ -108,7 +110,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate }) => {
                     if(el) el.scrollIntoView({behavior: 'smooth'});
                  }, 100);
                }}
-               className="block w-full text-left px-3 py-4 text-base font-medium text-neutralDark"
+               className="block w-full text-left px-3 py-4 text-xs font-bold uppercase tracking-widest text-neutralDark"
             >
               Inquire Now
             </button>

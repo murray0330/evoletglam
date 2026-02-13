@@ -13,9 +13,8 @@ import { Page } from './types';
 
 const App: React.FC = () => {
   const [activePage, setActivePage] = useState<Page>('home');
-  // We use a key to force a re-mount of the Home component when the user clicks "Home" 
-  // while already on the Home page. This resets the internal state (viewMode) to 'landing'.
   const [homeKey, setHomeKey] = useState(0);
+  const [isConciergeOpen, setIsConciergeOpen] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -23,7 +22,6 @@ const App: React.FC = () => {
 
   const handleNavigate = (page: Page) => {
     if (page === 'home' && activePage === 'home') {
-      // Force reset if navigating to home while already there
       setHomeKey(prev => prev + 1);
     }
     setActivePage(page);
@@ -50,11 +48,18 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col font-sans antialiased">
-      <Navbar activePage={activePage} onNavigate={handleNavigate} />
+      <Navbar 
+        activePage={activePage} 
+        onNavigate={handleNavigate} 
+      />
       <main className="flex-grow relative">
         {renderPage()}
       </main>
-      <Chatbot />
+      <Chatbot 
+        isOpen={isConciergeOpen} 
+        onClose={() => setIsConciergeOpen(false)} 
+        onOpen={() => setIsConciergeOpen(true)}
+      />
       <Footer onNavigate={handleNavigate} />
     </div>
   );

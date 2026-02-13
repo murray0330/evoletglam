@@ -26,7 +26,7 @@ export const Hero: React.FC<HeroProps> = ({ onStart }) => {
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105 animate-fade-in"
-        style={{ backgroundImage: `url('https://drive.google.com/thumbnail?id=1PevuWVzRxnsepzomGlF9DYJyq40b6jo2&sz=s800')` }}
+        style={{ backgroundImage: `url('https://drive.google.com/thumbnail?id=1sQt_YiOpSGcFedIfJrXFVByBiRQ-OW3M&sz=s800')` }}
       />
       
       {/* Overlay - Black 40% */}
