@@ -178,10 +178,16 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 export const FAQS: FaqItem[] = [
-  { q: "Do you handle beach permits?", a: "Yes, we coordinate all necessary permits for Virginia Beach, Norfolk, and Hampton beaches." },
-  { q: "What happens if it rains?", a: "We monitor the coast closely and offer flexible rescheduling or indoor back-up venue coordination." },
-  { q: "Can we propose at sunrise?", a: "Absolutely. Coastal Virginia sunrise proposals are some of our most magical experiences." },
-  { q: "Are locations accessible?", a: "Many of our beach spots are easily accessible. We provide specific arrival instructions for your partner." }
+  { q: "Do you handle beach permits?", a: "Yes, we coordinate all necessary permits for Virginia Beach, Norfolk, and Hampton beaches. We ensure your setup is fully compliant with local coastal regulations." },
+  { q: "What happens if it rains?", a: "We monitor the coast closely. If the forecast shows rain, we offer flexible rescheduling or can coordinate a shift to one of our curated indoor back-up venues." },
+  { q: "Can we propose at sunrise?", a: "Absolutely. Coastal Virginia sunrise proposals are some of our most magical experiences, offering soft light and maximum privacy on the shoreline." },
+  { q: "Are locations accessible?", a: "Many of our beach spots are easily accessible. We provide specific arrival instructions and can recommend locations with better boardwalk access for those with mobility needs." },
+  { q: "How far in advance should I book?", a: "We recommend booking at least 4-6 weeks in advance, especially for weekend sunset slots during the peak summer and fall seasons." },
+  { q: "Can I customize the floral colors?", a: "Yes! Our design team can tailor the floral palette to your partner's favorite colors or a specific theme to make the moment even more personal." },
+  { q: "Do you provide actual food for the picnics?", a: "While we specialize in the design and setup, we partner with premium local caterers for charcuterie and light bites. You can select these as add-ons during your consultation." },
+  { q: "Is there a limit on guests?", a: "Our signature beach setups are designed for intimacy (2-4 guests). However, we can accommodate larger groups with custom coastal event planning for an additional fee." },
+  { q: "Can I bring my own photographer?", a: "Of course. While we offer professional photography as an add-on, you are welcome to bring your own. We just ask for their contact info to coordinate arrival logistics." },
+  { q: "How long does the setup stay in place?", a: "Our standard packages typically include 1 to 2.5 hours of use. We handle the full setup before you arrive and the cleanup once you depart." }
 ];
 
 export const GALLERY_IMAGES = {
