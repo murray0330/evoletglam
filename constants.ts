@@ -187,7 +187,10 @@ export const FAQS: FaqItem[] = [
   { q: "Do you provide actual food for the picnics?", a: "While we specialize in the design and setup, we partner with premium local caterers for charcuterie and light bites. You can select these as add-ons during your consultation." },
   { q: "Is there a limit on guests?", a: "Our signature beach setups are designed for intimacy (2-4 guests). However, we can accommodate larger groups with custom coastal event planning for an additional fee." },
   { q: "Can I bring my own photographer?", a: "Of course. While we offer professional photography as an add-on, you are welcome to bring your own. We just ask for their contact info to coordinate arrival logistics." },
-  { q: "How long does the setup stay in place?", a: "Our standard packages typically include 1 to 2.5 hours of use. We handle the full setup before you arrive and the cleanup once you depart." }
+  { q: "How long does the setup stay in place?", a: "Our standard packages typically include 1 to 2.5 hours of use. We handle the full setup before you arrive and the cleanup once you depart." },
+  { q: "Is alcohol allowed on the beach?", a: "Public beaches in Virginia strictly prohibit alcohol. However, for a celebratory toast, we provide sparkling cider, or we can arrange your setup at a private rental or venue where alcohol is permitted." },
+  { q: "Do you offer proposal planning advice?", a: "Yes! Our Concierge team is happy to help brainstorm ideas, suggest the best time of day for lighting, and coordinate logistics to keep the moment a surprise." },
+  { q: "Can I select my own music?", a: "Absolutely. Our Bluetooth Speaker feature allows you to play your own curated playlist. If you book a live musician, we can coordinate your special song request in advance." }
 ];
 
 export const GALLERY_IMAGES = {
